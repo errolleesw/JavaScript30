@@ -62,6 +62,18 @@
 
   <script>
 
+    function removeTransition(e) {
+      // if (e.propertyName !== 'transform') return; // skip it if it is not a transform
+     // console.log(e.propertyName);
+      //console.log(this); // this is always equal to the thing that triggered the event.
+      // this.classList.remove('playing');
+      // e.target.classList.remove('playing');
+
+      // this is a better way of removing the 'playing' class. It ensures the transition effect stays in place only while the key is pressed down.
+      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+      key.classList.remove('playing');
+
+    }
     function playSound(e) {
       // console.log(e.keyCode);
       const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
@@ -70,24 +82,19 @@
       if (!audio) return; //stop the function from running
       // console.log(audio);
       //console.log(key);
+      key.classList.add('playing');
       audio.currentTime = 0; //rewind to start
       audio.play();
-      key.classList.add('playing');
 
     };
 
 
-    function removeTransition(e) {
-      if (e.propertyName !== 'transform') return; // skip it if it is not a transform
-      console.log(e.propertyName);
-      console.log(this); // this is always equal to the thing that triggered the event.
-      this.classList.remove('playing');
-    }
-
     const keys = document.querySelectorAll('.key');
-    keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // when the transition is complete, call the removeTransition function.
+    // keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // when the transition is complete, call the removeTransition function.
 
     window.addEventListener('keydown', playSound);
+    // remove the transition effect only when the key is released.
+    window.addEventListener('keyup', removeTransition);
 
   </script>
 
