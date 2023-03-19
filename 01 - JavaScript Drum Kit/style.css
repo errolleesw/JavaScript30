@@ -18,7 +18,9 @@ body {
 }
 
 h1 {
-  color: white
+  color: greenyellow;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .title {
@@ -39,12 +41,12 @@ h1 {
 }
 
 .key {
-  border: .4rem solid black;
+  border: .1rem solid greenyellow;
   border-radius: .5rem;
   margin: 1rem;
   font-size: 1.5rem;
   padding: 1rem .5rem;
-  transition: all .07s ease;
+  transition: all .02s ease;
   width: 10rem;
   text-align: center;
   color: white;
@@ -54,8 +56,8 @@ h1 {
 
 .playing {
   transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
+  border-color: neon greenyellow;
+  box-shadow: 0 0 1rem greenyellow;
 }
 
 kbd {
@@ -67,5 +69,5 @@ kbd {
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: .1rem;
-  color: #ffc600;
+  color: greenyellow;
 }
